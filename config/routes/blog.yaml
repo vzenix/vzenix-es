@@ -1,0 +1,53 @@
+blog_rss:
+    methods:    [GET, HEAD]
+    path:       /blog/rss
+    controller: VZenix\Bundle\BlogBundle\Controller\EntriesController::rssAction
+
+blog_list:
+    methods:    [GET, HEAD]
+    path:       /blog
+    controller: VZenix\Bundle\BlogBundle\Controller\EntriesController::listAction
+
+blog_list_alias:
+    methods:    [GET, HEAD]
+    path:       /blog/
+    controller: VZenix\Bundle\BlogBundle\Controller\EntriesController::listAction
+
+blog_list_page:
+    methods:    [GET, HEAD]
+    path:       /blog/{page}
+    controller: VZenix\Bundle\BlogBundle\Controller\EntriesController::listAction
+    requirements:
+        page: '\d+'
+
+blog_list_page_alias:
+    methods:    [GET, HEAD]
+    path:       /blog/{page}/
+    controller: VZenix\Bundle\BlogBundle\Controller\EntriesController::listAction
+    requirements:
+        page: '\d+'
+
+blog_show:
+    methods:    [GET, HEAD]
+    path:       /blog/{slug}
+    controller: VZenix\Bundle\BlogBundle\Controller\EntryController::showAction
+
+blog_show_alias:
+    methods:    [GET, HEAD]
+    path:       /blog/{slug}/
+    controller: VZenix\Bundle\BlogBundle\Controller\EntryController::showAction
+
+blog_add:
+    methods:    [POST]
+    path:       /blog
+    controller: VZenix\Bundle\BlogBundle\Controller\EntryController::createAction
+
+blog_edit:
+    methods:    [POST]
+    path:       /blog/{slug}
+    controller: VZenix\Bundle\BlogBundle\Controller\EntryController::editAction
+
+blog_delete:
+    methods:    [DELETE]
+    path:       /blog/{slug}
+    controller: VZenix\Bundle\BlogBundle\Controller\EntryController::deleteAction
