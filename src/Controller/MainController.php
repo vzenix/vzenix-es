@@ -67,7 +67,7 @@ class MainController extends AbstractController
        
         foreach ($entries AS $entry) {
             $item = $xml->addChild('url');
-            $item->addChild('loc', $this->generateUrl('blog_show', array('slug' => $entry->getFriendly())));
+            $item->addChild('loc', $request->getSchemeAndHttpHost() . $this->generateUrl('blog_show', array('slug' => $entry->getFriendly())));
             $item->addChild('lastmod', $entry->getCreated()->format("Y-m-d"));
         }
 
