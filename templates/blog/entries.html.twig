@@ -1,0 +1,167 @@
+{# templates/security/login.html.twig #}
+
+{% extends 'base.blog.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+{% block headers %}
+
+	<meta name="generator" content="vzenix/vzenix-es" />
+
+	<!-- Jetpack Open Graph Tags  -->
+	<meta property="og:locale" content="es_ES" />
+	<meta property="og:site_name" content="Blog VZenix" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Blog VZenix" />
+	<meta property="og:url" content="{{ app.request.uri }}" />
+	<meta property="og:description" content="Blog del sitio web vzenix.es" />
+	<meta property="og:image" content="https://vzenix.es/img/circle.png" />
+	<meta property="og:image:url" content="https://vzenix.es/img/circle.png" />
+	<meta property="og:image:secure_url" content="https://vzenix.es/img/circle.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="640" />
+	<meta property="og:image:height" content="640" />
+	<meta property="og:image:alt" content="vzenix" />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@vzenix" />
+	<meta name="twitter:creator" content="@vzenix" />
+
+{% endblock %}
+
+{% block body %}
+
+	{# 
+	{% if role_manage %}
+
+		<ul class="actions">
+			<li>
+				<button onClick="ShowForm()">
+					Mostrar / Ocultar Creación de post
+				</button>
+			</li>
+		</ul>
+
+		<section class="post blogform hide" id="postForm">
+			<form>
+				<label>Título</label>
+				<input type="text" name="title" placeholder="Título" />
+				<label>Sub-Título</label>
+				<input type="text" name="subtitle" placeholder="Sub-Título" />
+				<label>Cabeceras html</label>
+				<textarea name="haders" placeholder="Cabeceras html">{% include 'blog/entry.headers.default.html.twig' %}</textarea>
+				<label>Resumen</label>
+				<textarea name="summary" placeholder="Resumen"></textarea>
+				<label>Contenido</label>
+				<textarea name="content" placeholder="Contenido"></textarea>
+			</form>
+
+			<ul class="actions">
+				<li>
+					<button>
+						Guardar
+					</button>
+				</li>
+			</ul>
+		</section>
+
+	{% endif %}
+	#}
+
+    {% for entry in entries %}
+
+		{% set image = entry.getImage() %}
+		{% if image == '' %}
+			{% set image = '/images-blog/pic01.jpg' %}
+		{% endif %}
+
+		{% set website = entry.getAuthor().getWebsite() %}
+		{% if website == '' %}
+			{% set website = '#' %}
+		{% endif %}
+
+    <!-- Post -->
+    	<article class="post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			<meta itemprop="mainEntityOfPage" content="{{ url('blog_show', {slug: entry.getFriendly()}) }}">
+
+    		<header>
+    			<div class="title">
+    				<h2>
+						<a href="{{ url('blog_show', {slug: entry.getFriendly()}) }}" itemprop="name headline">
+							{{ entry.getTitle() }}
+						</a>
+					</h2>
+    				<p>{{ entry.getSubtitle() }}</p>
+    			</div>
+    			<div class="meta">
+    				<time class="published" datetime="{{ entry.getCreated().format('Y-m-d') }}" itemprop="datePublished">{{ entry.getCreated().format('Y-m-d') }}</time>
+					<meta itemprop="dateModified" content="{{ entry.getUpdated().format('Y-m-d') }}">
+
+                    <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <a href="{{ website }}" class="author" rel="author" itemprop="url" title="Ver perfil">
+                            <span class="name" itemprop="name">{{ entry.getAuthor().getName() }}</span>
+                            <img src="{{ entry.getAuthor().getImage() }}" alt="{{ entry.getAuthor().getName() }}" itemprop="image" />
+                        </a>
+                    </span>
+    			</div>
+    		</header>
+
+      		<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="hide">
+        		<img itemprop="url" alt="Alt text" src="{{ image }}">
+        		<meta itemprop="width" content="840">
+        		<meta itemprop="height" content="100">
+        		<figcaption itemprop="caption">Image for entry {{ entry.getTitle() }}.</figcaption>
+			</figure>
+
+    		<a href="{{ url('blog_show', {slug: entry.getFriendly()}) }}" class="image featured">
+				<img src="{{ image }}" alt="Image for entry {{ entry.getTitle() }}." />
+			</a>
+
+            <p>{{ entry.getSummary()|raw }}</p>
+
+    		<footer>
+    			<ul class="actions">
+    				<li><a href="{{ url('blog_show', {slug: entry.getFriendly()}) }}" class="button large">Continuar leyendo</a></li>
+    			</ul>
+    			<ul class="stats">
+    				<li><a href="#">{{ entry.getMetaTags() }}</a></li>
+    				{# <li><a href="#" class="icon fa-heart">28</a></li> #}
+    				{# <li><a href="#" class="icon fa-comment">128</a></li> #}
+    			</ul>
+    		</footer>
+    	</article>
+    {% endfor %}
+
+	{% if pagination.total > 1 %}
+
+	<section id="pagination" itemscope itemtype="https://schema.org/SiteNavigationElement">
+		<ul class="actions">
+
+			{% if pagination.url_prev %}
+			<li><a href="{{ pagination.url_prev }}" class="button large fit" itemprop="url">Anterior</a></li>
+			{% else %}
+			<li><a href="#" class="button large fit disabled">Anterior</a></li>
+			{% endif %}
+
+			<li>Página {{ pagination.current }} de {{ pagination.total }} ({{ total }} artículos) </li>
+
+			{% if pagination.url_next %}
+			<li><a href="{{ pagination.url_next }}" class="button large fit" itemprop="url">Siguiente</a></li>
+			{% else %}
+			<li><a href="#" class="button large fit disabled">Siguiente</a></li>
+			{% endif %}
+
+		</ul>
+	</section>
+
+	{% else %}
+
+	<section id="pagination">
+		<ul class="actions">
+			<li>Página {{ pagination.current }} de {{ pagination.total }} ({{ total }} artículos) </li>
+		</ul>
+	</section>
+
+	{% endif %}
+
+{% endblock %}

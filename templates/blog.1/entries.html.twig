@@ -1,0 +1,31 @@
+{# templates/security/login.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+{% block body %}
+
+    {% if role_manage %}
+        <p>Tiene rol de administrador</p>
+    {% else %}
+        <p>No tiene el rol de administrador</p>
+    {% endif %}
+
+    <p>Entradas en el blog {{ total }}</p>
+    <p>Página actual {{ page_current }}</p>
+    <p>Páginas totales {{ page_total }}</p>
+
+    <ul>
+    {% for entry in entries %}
+        <li>
+            <ul>
+                <li><a href="{{ url('blog_show', {slug: entry.getFriendly()}) }}">Ver</a></li>
+                <li>{{ entry.getId() }}</li>
+                <li>{{ entry.getTitle() }}</li>
+                <li>{{ entry.getContent()|raw }}</li>
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

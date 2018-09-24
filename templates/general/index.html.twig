@@ -1,0 +1,62 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}VZenix{% endblock %}
+
+{% block body %}
+
+	<div itemscope itemtype="https://schema.org/Person">
+
+		<header>
+			<span class="avatar">
+				<img itemprop="image" src="https://vzenix.es/img/circle.png" alt="Imagen principal" onClick="GoToHome()" />
+			</span>
+			<h1 itemprop="name">Francisco Muros Espadas</h1>
+			<p itemprop="description">Un desarrollador más por el mundo</p>
+			<span itemprop="email" class="hide">info@vzenix.es</span> 
+			<a href="https://vzenix.es" itemprop="url" class="hide">Website</a>
+			<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="hide">
+				<span itemprop="postalCode">18006</span>
+				<span itemprop="addressCountry">España</span>
+				<span itemprop="addressLocality">Granada</span>
+			</div> 
+		</header>
+
+		<footer>
+			<ul class="icons">
+				<li class="tooltip">
+					<a href="http://twitter.com/vzenix/" target="_Blank" itemprop="sameAs"><i class="fab fa-twitter"></i></a>
+					<span class="animate-flicker tooltiptext">Twitter</span>
+				</li>
+				<li class="tooltip">
+					<a href="https://github.com/vzenix/" target="_Blank" itemprop="sameAs"><i class="fab fa-github"></i></a>
+					<span class="animate-flicker tooltiptext">GitHub</span>
+				</li>
+				<li class="tooltip">
+					<a href="https://es.linkedin.com/in/francisco-muros-espadas-849b4864" target="_Blank" itemprop="sameAs"><i class="fab fa-linkedin-in"></i></a>
+					<span class="animate-flicker tooltiptext">Linkedin</span>
+				</li>
+			</ul>
+			<ul class="icons" itemscope itemtype="https://schema.org/SiteNavigationElement">
+				<li class="tooltip">
+					<a href="/proyectos" itemprop="url"><i class="fas fa-book"></i><span class="hide">Herramientas y proyectos</span></a>
+					<span class="animate-flicker tooltiptext tooltiptextbig">Herramientas y proyectos</span>
+				</li>
+				<li class="tooltip">
+					<a href="/blog" itemprop="url"><i class="fab fa-blogger-b"></i><span class="hide">Blog</span></a>
+					<span class="animate-flicker tooltiptext">Blog</span>
+				</li>
+				<li class="tooltip">
+					<a href="mailto:info@vzenix.es"><i class="fas fa-envelope"></i></a>
+					<span class="animate-flicker tooltiptext">Email</span>
+				</li>
+				<li class="tooltip">
+					<a href="/acerca-de" itemprop="url"><i class="fas fa-balance-scale"></i><span class="hide">Condiciones de uso</span></a>
+					<span class="animate-flicker tooltiptext tooltiptextbig">Condiciones de uso</span>
+				</li>
+			</ul>
+		</footer>
+
+	</div>
+
+{% endblock %}

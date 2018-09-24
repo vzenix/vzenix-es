@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>{% block title %}Blog{% endblock %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="{{ app.request.getSchemeAndHttpHost() }}/img/favi.png" /> 
+		<link rel="stylesheet" href="/assets-future-imperfect/css/main.css" />
+
+		<meta name="generator" content="vzenix/blog-bundle" />
+
+		<!-- Jetpack Open Graph Tags global -->
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:site_name" content="Blog VZenix" />
+
+		<!-- Twitter -->
+		<meta name="twitter:site" content="@vzenix" />
+		<meta name="twitter:card" content="summary" />
+
+		{% block headers %}{% endblock %}
+
+        {% block stylesheets %}{% endblock %}
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/blog">VZenix Blog</a></h1>
+						<!--
+						<nav class="links">
+							<ul>
+								<li><a href="/proyectos">Proyectos</a></li>
+								<li><a href="/blog">Blog</a></li>
+								<li><a href="/acerca-de">Acerca de</a></li>
+							</ul>
+						</nav>
+						-->
+						<nav class="main">
+							<ul>
+								<li class="search" itemscope itemtype="https://schema.org/WebSite">
+									<meta itemprop="url" content="{{ app.request.getSchemeAndHttpHost() }}/blog">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="{{ app.request.getSchemeAndHttpHost() }}/blog" itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction">
+										<meta itemprop="target" content="{{ app.request.getSchemeAndHttpHost() }}/blog?q={q}">
+										<input itemprop="query-input" type="search" name="q" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section itemscope itemtype="https://schema.org/WebSite">
+								<meta itemprop="url" content="{{ app.request.getSchemeAndHttpHost() }}/blog">
+								<form class="search" method="get" action="{{ app.request.getSchemeAndHttpHost() }}/blog" itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction">
+									<meta itemprop="target" content="{{ app.request.getSchemeAndHttpHost() }}/blog?q={q}">
+									<input itemprop="query-input" type="search" name="q" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links" itemscope itemtype="https://schema.org/SiteNavigationElement">
+									<li>
+										<a itemprop="url" href="/blog">
+											<h3>Blog</h3>
+											<p>Página principal de este blog</p>
+										</a>
+									</li>
+									<li>
+										<a itemprop="url" href="/">
+											<h3>VZenix</h3>
+											<p>Página de presentación de "vzenix"</p>
+										</a>
+									</li>
+									<li>
+										<a itemprop="url" href="/proyectos">
+											<h3>Proyectos</h3>
+											<p>Aplicaciones, proyectos y herramientas desarrolladas</p>
+										</a>
+									</li>
+									<li>
+										<a itemprop="url" href="/acerca-de">
+											<h3>Condiciones de uso</h3>
+											<p>Información sobre esta página y legal</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main" aria-label="Main content" itemscope itemtype="https://schema.org/Blog">
+                        {% block body %}<p>No se pudo cargar la página</p>{% endblock %}
+					</div>
+
+            <!-- Footer -->
+                <section id="footer">
+                    <ul class="icons">
+                        <li><a href="https://twitter.com/vzenix/" class="fa-twitter"><span class="label" target="_Blank">Twitter</span></a></li>
+                        <li><a href="https://es.linkedin.com/in/francisco-muros-espadas-849b4864" class="fa-linkedin"><span class="label" target="_Blank">Linkedin</span></a></li>
+                        <li><a href="https://github.com/vzenix/" class="fa-github" target="_Blank"><span class="label">GitHub</span></a></li>
+                        <li><a href="{{ url('blog_rss', {}) }}" class="fa-rss" target="_Blank"><span class="label">RSS</span></a></li>
+                    </ul>
+                    <p class="copyright"><a href="/acerca-de" target="_Blank">Ver codiciones de uso</a></p>
+                </section>
+
+			</div>
+
+			<div id="barraaceptacioncookie" style="display: block;">
+				<div class="inner">
+					Al navegar aceptas el almacenamiento de cookies e información personal descrita en las "<a href="/acerca-de">Condiciones de uso</a>"
+					<a href="javascript:void(0);" class="ok" onclick="PonerCookie();"><b>OK</b></a> | 
+					<a href="/acerca-de" target="_blank" class="info">Más información</a>
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="/assets-future-imperfect/js/jquery.min.js"></script>
+			<script src="/assets-future-imperfect/js/browser.min.js"></script>
+			<script src="/assets-future-imperfect/js/breakpoints.min.js"></script>
+			<script src="/assets-future-imperfect/js/util.js"></script>
+			<script src="/assets-future-imperfect/js/main.js"></script>
+
+			<script src="/js/blog.js"></script>
+
+            {% block javascripts %}{% endblock %}
+
+			<!--
+			<script type="text/javascript">
+				(function (i, s, o, g, r, a, m) {
+					i['GoogleAnalyticsObject'] = r;
+					i[r] = i[r] || function () {
+						(i[r].q = i[r].q || []).push(arguments)
+					}, i[r].l = 1 * new Date();
+					a = s.createElement(o),
+							m = s.getElementsByTagName(o)[0];
+					a.async = 1;
+					a.src = g;
+					m.parentNode.insertBefore(a, m)
+				})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+				ga('create', 'UA-13027374-5', 'vzenix.es');
+				ga('send', 'pageview');
+
+			</script>
+			-->
+
+	</body>
+</html>

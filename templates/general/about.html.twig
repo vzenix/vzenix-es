@@ -1,0 +1,59 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}VZenix - Condiciones de uso{% endblock %}
+
+{% block body %}
+
+    <header>
+        <span class="avatar"><img src="https://vzenix.es/img/circle.png" alt="Logo" onClick="GoToHome()" /></span>
+        <h1>Condiciones de uso</h1>
+    </header>
+
+		<h2>General</h2>
+		<p>Esta es una página web de caracter personal.</p>
+		<p>El único objetivo de esta página es presentar parte de mi trabajo, así como cualquier opinión mía.</p>
+
+		<h2>Que se almacena</h2>
+		<p>A continuación se lista la información que se almacena de las personas que se conectan para el correcto funcionamiento del sitio web.</p>
+		<ul class="about-list">
+			<li><strong>Cookies</strong>: Desde esta página se pueden generar cookies por parte de la aplicación de <a href="https://analytics.google.com/" target="_Blank">Google analytics</a> o de alguna de las herramientas publicadas accesibles desde la sección de proyectos.</li>
+			<li><strong>Servidor</strong>: El servidor recopila logs que de las conexiones que se realizan, información como la IP, la fecha y el navegador que hace la conexión.</li>
+			<li>En el portal no se piden datos de caracter personal, no son necesarios para el funcionamiento salvo los descritos en el punto anterior.</li>
+		</ul>
+
+		<h2>Contacto y propiedad</h2>
+		<p>Puede ver la propiedad en nic.es consultando la información del dominio en "<a href="http://www.dominios.es/">http://www.dominios.es/</a>".</p>
+		<p>Cualquier reclamación puede hacerse a <a href="mailto:info@vzenix.es">info@vzenix.es</a>.</p>
+
+		<h2>Recursos usados en la web</h2>
+		<p>La parte del diseño usa los siguientes recursos desarrollados por terceros que aquí incluyo.</p>
+		<ul class="about-list">
+			<li>La plantilla web fue descargada desde <a href="https://html5up.net/" target="_Blank">https://html5up.net/</a>.</li>
+			<li>Se usan los iconos de <a href="https://fontawesome.com/" target="_Blank">https://fontawesome.com/</a>.</li>
+			<li>Se usa <a href="https://analytics.google.com/" target="_Blank">Google analytics</a> para medir las visitas del sitio.</li>
+		</ul>
+
+
+    <footer itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <ul class="icons">
+            <li class="tooltip">
+                <a href="/" itemprop="url"><i class="fas fa-home"></i><span class="hide">Inicio</span></a>
+                <span class="animate-flicker tooltiptext">Inicio</span>
+            </li>
+    		<li class="tooltip">
+    			<a href="/proyectos" itemprop="url"><i class="fas fa-book"></i><span class="hide">Herramientas y proyectos</span></a>
+    			<span class="animate-flicker tooltiptext tooltiptextbig">Herramientas y proyectos</span>
+    		</li>
+    		<li class="tooltip">
+    			<a href="/blog" itemprop="url"><i class="fab fa-blogger-b"></i><span class="hide">Blog</span></a>
+    			<span class="animate-flicker tooltiptext">Blog</span>
+    		</li>
+    		<li class="tooltip">
+    			<a href="mailto:info@vzenix.es"><i class="fas fa-envelope"></i></a>
+    			<span class="animate-flicker tooltiptext">Email</span>
+    		</li>
+        </ul>
+    </footer>
+
+{% endblock %}

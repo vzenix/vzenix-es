@@ -1,0 +1,65 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}VZenix - Proyectos{% endblock %}
+
+{% block body %}
+
+    <header>
+    	<span class="avatar"><img src="https://vzenix.es/img/circle.png" alt="Logo" onClick="GoToHome()" /></span>
+    	<h1>Proyectos</h1>
+    </header>
+
+    <h2>Navegadores</h2>
+    <hr />
+    <h3>
+        <a href="https://github.com/vzenix/image-reader" target="_Blank">Image Reader</a>
+    </h3>
+    <div class="cardcontainer">
+        <div>
+            <img src="https://raw.githubusercontent.com/vzenix/image-reader/master/icons/logo-64.png" />
+        </div>
+        <div>
+            <p>Complemento de Firefox y Chrome para ver todas las imágenes de una página cargada</p>
+            <p>Más información <a href="https://github.com/vzenix/image-reader" target="_Blank">haciendo click aquí</a></p>
+        </div>
+    </div>
+
+    <h2>Symfony Bundles</h2>
+    <hr />
+    <h3>
+        <a href="https://github.com/vzenix/vzenix-es" target="_Blank">Web "vzenix.es"</a>
+    </h3>
+    <div class="cardcontainer">
+        <div>
+            <img src="https://vzenix.es/img/circle.png" />
+        </div>
+        <div>
+            <p>El código fuente de esta página está disponible en GitHub para quien quiera verlo.</p>
+            <p>Se puede acceder <a href="https://github.com/vzenix/vzenix-es" target="_Blank">haciendo click aquí</a></p>
+        </div>
+    </div>
+
+    <hr />
+    <footer>
+    	<ul class="icons" itemscope itemtype="https://schema.org/SiteNavigationElement">
+            <li class="tooltip">
+                <a href="/" itemprop="url"><i class="fas fa-home"></i><span class="hide">Inicio</span></a>
+                <span class="animate-flicker tooltiptext">Inicio</span>
+            </li>
+    		<li class="tooltip">
+    			<a href="/blog" itemprop="url"><i class="fab fa-blogger-b"></i><span class="hide">Blog</span></a>
+    			<span class="animate-flicker tooltiptext">Blog</span>
+    		</li>
+    		<li class="tooltip">
+    			<a href="mailto:info@vzenix.es"><i class="fas fa-envelope"></i></a>
+    			<span class="animate-flicker tooltiptext">Email</span>
+    		</li>
+    		<li class="tooltip">
+    			<a href="/acerca-de" itemprop="url"><i class="fas fa-balance-scale"></i><span class="hide">Condiciones de uso</span></a>
+    			<span class="animate-flicker tooltiptext tooltiptextbig">Condiciones de uso</span>
+    		</li>
+        </ul>
+    </footer>
+
+{% endblock %}

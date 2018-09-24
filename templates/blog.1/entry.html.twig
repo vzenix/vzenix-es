@@ -1,0 +1,15 @@
+{# templates/security/login.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Entrada en el blog{% endblock %}
+{% block body %}
+
+<article>
+    <header>
+        <h1><a href="{{ url('blog_show', {slug: entry.getFriendly()}) }}">{{ entry.getTitle() }}</a></h1>
+    </header>
+    {{ entry.getContent()|raw }}
+</article>
+
+{% endblock %}

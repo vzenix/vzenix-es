@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		{% if title is not defined %}
+			{% set title = "VZenix" %}
+		{% endif %}
+
+        <title>{% block title %}VZenix!{% endblock %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="{{ app.request.getSchemeAndHttpHost() }}/img/favi.png" /> 
+		<link rel="stylesheet" href="assets-identity/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets-identity/css/noscript.css" /></noscript>
+
+		<!-- Jetpack Open Graph Tags  -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="{{ title }}" />
+		<meta property="og:url" content="{{ app.request.uri }}" />
+		<meta property="og:description" content="Website de vzenix.es; {{ title }}" />
+		<meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() }}/img/circle.png" />
+		<meta property="og:image:url" content="{{ app.request.getSchemeAndHttpHost() }}/img/circle.png" />
+		<meta property="og:image:secure_url" content="{{ app.request.getSchemeAndHttpHost() }}/img/circle.png" />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="640" />
+		<meta property="og:image:height" content="640" />
+		<meta property="og:image:alt" content="vzenix" />
+
+		<!-- Twitter -->
+		<meta name="twitter:creator" content="@vzenix" />
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" {% if main_class is defined %} class="{{ main_class }}" {% endif %}>
+    
+                        {% block body %}<p>Página no encontrada</p>{% endblock %}
+
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>Al navegar aceptas el almacenamiento de cookies e información personal descrita en las "<a href="/acerca-de">Condiciones de uso</a>"</li>
+						</ul>
+					</footer>
+
+			</div>
+
+			<script src="/js/blog.js"></script>
+
+		<!-- Scripts -->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+			<!--
+			<script type="text/javascript">
+				(function (i, s, o, g, r, a, m) {
+					i['GoogleAnalyticsObject'] = r;
+					i[r] = i[r] || function () {
+						(i[r].q = i[r].q || []).push(arguments)
+					}, i[r].l = 1 * new Date();
+					a = s.createElement(o),
+							m = s.getElementsByTagName(o)[0];
+					a.async = 1;
+					a.src = g;
+					m.parentNode.insertBefore(a, m)
+				})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+				ga('create', 'UA-13027374-5', 'vzenix.es');
+				ga('send', 'pageview');
+
+			</script>
+			-->
+
+        {% block javascripts %}{% endblock %}
+
+	</body>
+</html>
