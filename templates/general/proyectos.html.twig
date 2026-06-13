@@ -6,9 +6,24 @@
 {% block body %}
 
     <header>
-    	<span class="avatar"><img src="https://vzenix.es/img/circle.png" alt="Logo" onClick="GoToHome()" /></span>
+    	<span class="avatar"><img src="/img/circle.png" alt="Logo" onClick="GoToHome()" /></span>
     	<h1>Proyectos</h1>
     </header>
+
+    <h2>IA</h2>
+    <hr />
+    <h3>
+        <a href="https://github.com/vzenix/vzenix-es" target="_Blank">Generación de datos de ejemplo</a>
+    </h3>
+    <div class="cardcontainer">
+        <div>
+            <img src="/img/ia-herramientas.svg" style="width: 64px;" />
+        </div>
+        <div>
+            <p>Ejemplos de herramientas generadas completamente con IA generativa usando <a href="https://opencode.ai/">OpenCode</a> para generar y usar datos de prueba en desarrollos.</p>
+            <p>Se puede acceder <a href="https://ia.vzenix.es/" target="_Blank">haciendo click aquí</a> al resultado</p>
+        </div>
+    </div>
 
     <h2>Navegadores</h2>
     <hr />
@@ -25,20 +40,6 @@
         </div>
     </div>
 
-    <h2>PHP</h2>
-    <hr />
-    <h3>
-        <a href="https://github.com/vzenix/vzenix-es" target="_Blank">Web "vzenix.es"</a>
-    </h3>
-    <div class="cardcontainer">
-        <div>
-            <img src="https://vzenix.es/img/circle.png" />
-        </div>
-        <div>
-            <p>El código fuente de esta página está disponible en GitHub para quien quiera verlo.</p>
-            <p>Se puede acceder <a href="https://github.com/vzenix/vzenix-es" target="_Blank">haciendo click aquí</a> y está escrito con framework "Symfony"</p>
-        </div>
-    </div>
 
     <h2>JavaScript / NPM</h2>
     <hr />
@@ -47,7 +48,7 @@
     </h3>
     <div class="cardcontainer">
         <div>
-            <img src="https://vzenix.es/img/circle.png" />
+            <img src="/img/circle.png" />
         </div>
         <div>
             <p>Funcionalidades para trabajar sobre el sistema de archivos y los discos duros no incluidas en el módulo "fs".</p>
@@ -63,12 +64,6 @@
                 <a href="/" itemprop="url"><i class="fas fa-home"></i><span class="hide">Inicio</span></a>
                 <span class="animate-flicker tooltiptext">Inicio</span>
             </li>
-            <!--
-    		<li class="tooltip">
-    			<a href="/blog" itemprop="url"><i class="fab fa-blogger-b"></i><span class="hide">Blog</span></a>
-    			<span class="animate-flicker tooltiptext">Blog</span>
-    		</li>
-            -->
     		<li class="tooltip">
     			<a href="mailto:info@vzenix.es"><i class="fas fa-envelope"></i></a>
     			<span class="animate-flicker tooltiptext">Email</span>
